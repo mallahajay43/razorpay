@@ -1,4 +1,4 @@
-package me.mallahajay43.razorpay.payment;
+package me.mallahajay43.razorpay.payment.entity;
 
 import jakarta.persistence.*;
 import me.mallahajay43.razorpay.common.enums.PaymentActor;

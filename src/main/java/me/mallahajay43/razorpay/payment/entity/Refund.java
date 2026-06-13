@@ -1,10 +1,14 @@
-package me.mallahajay43.razorpay.payment;
+package me.mallahajay43.razorpay.payment.entity;
 
 import jakarta.persistence.*;
 import me.mallahajay43.razorpay.common.entity.Money;
 import me.mallahajay43.razorpay.common.enums.RefundStatus;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Entity
@@ -35,4 +39,8 @@ public class Refund {
     @Column(length = 256)
     private String errorDescription;
     private LocalDateTime processedAt;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
+    private Map<String,Object> notes = new HashMap<String, Object>();
 }
